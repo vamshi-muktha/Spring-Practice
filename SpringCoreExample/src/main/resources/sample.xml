@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id = "s1" class = "com.example.demo.Resource" scope = "prototype" init-method = "init" destroy-method="destroy">
+    	<property name = "resourceName" value = "Oracle"></property>
+    	<property name = "resourcePort" value = "8000"></property>
+    </bean>
+    
+    <bean id = "s2" class = "com.example.demo.Resource2">
+        <constructor-arg index = "0" value = "MySQL"></constructor-arg>
+        <constructor-arg index = "1" value = "3306"></constructor-arg>
+    </bean>
+
+</beans>
