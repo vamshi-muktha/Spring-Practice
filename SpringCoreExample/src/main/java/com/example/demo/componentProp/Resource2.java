@@ -1,4 +1,4 @@
-package com.example.componentProp;
+package com.example.demo.componentProp;
 
 import org.springframework.stereotype.Component;
 
@@ -8,10 +8,10 @@ import jakarta.inject.Inject;
 public class Resource2 {
 	@Inject
 	private Resource res;
-	
+
 	void display() {
 		System.out.println(res.getResourceName() + "  " + res.getResourcePort());
 	}
-	
-	
+
+
 }

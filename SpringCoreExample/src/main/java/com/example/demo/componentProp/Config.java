@@ -1,13 +1,10 @@
-package com.example.componentProp;
+package com.example.demo.componentProp;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-
-import com.example.demo.javabased.Resource2;
 
 @Configuration
 @ComponentScan("com.example.componentProp")
@@ -17,7 +14,7 @@ public class Config {
 	public static PropertySourcesPlaceholderConfigurer getPropFile() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
-	
+
 //	@Bean(name = "r1")
 //	public Resource getResource() {
 //		Resource r = new Resource();
@@ -33,14 +30,14 @@ public class Config {
 //		r.setResourcePort(8081);
 //		return r;
 //	}
-//	
-//	
-//	
-//	
+//
+//
+//
+//
 //	@Bean
 //	public Resource2 getResource2() {
 //		Resource2 r2 = new Resource2("resource2", 9898);
-//		
+//
 //		return r2;
 //	}
 }

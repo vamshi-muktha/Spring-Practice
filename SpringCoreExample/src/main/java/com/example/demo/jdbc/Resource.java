@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Resource {
-	
+
 	@Value("${mysql.url}")
 	private String url;
 	@Value("${mysql.username}")
@@ -31,6 +31,6 @@ public class Resource {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+
 }

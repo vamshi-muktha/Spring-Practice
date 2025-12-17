@@ -1,16 +1,12 @@
-package com.example.component;
+package com.example.demo.component;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-
-import com.example.demo.javabased.Resource2;
 
 @Configuration
 @ComponentScan("com.example.component")
 public class Config {
-	
+
 //	@Bean(name = "r1")
 //	public Resource getResource() {
 //		Resource r = new Resource();
@@ -26,14 +22,14 @@ public class Config {
 //		r.setResourcePort(8081);
 //		return r;
 //	}
-//	
-//	
-//	
-//	
+//
+//
+//
+//
 //	@Bean
 //	public Resource2 getResource2() {
 //		Resource2 r2 = new Resource2("resource2", 9898);
-//		
+//
 //		return r2;
 //	}
 }

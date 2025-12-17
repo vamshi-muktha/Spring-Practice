@@ -19,7 +19,7 @@ public class ReadData {
 	}
 	@Autowired
 	private DataSource ds;
-	
+
 	public void getData() throws SQLException {
 		try (Connection con = ds.getConnection();
 			 Statement st = con.createStatement();
@@ -29,13 +29,15 @@ public class ReadData {
 			while (rs.next()) {
 				for (int i = 1; i <= cols; i++) {
 					System.out.print(rs.getString(i));
-					if (i < cols) System.out.print(", ");
+					if (i < cols) {
+						System.out.print(", ");
+					}
 				}
 				System.out.println();
 			}
 		}
 	}
-	
+
 	public void getData2() throws SQLException {
 		try (Connection con = ds.getConnection();
 			 Statement st = con.createStatement();
@@ -45,7 +47,9 @@ public class ReadData {
 			while (rs.next()) {
 				for (int i = 1; i <= cols; i++) {
 					System.out.print(rs.getString(i));
-					if (i < cols) System.out.print(", ");
+					if (i < cols) {
+						System.out.print(", ");
+					}
 				}
 				System.out.println();
 			}

@@ -3,11 +3,11 @@ package com.example.demo.javabased;
 public class Resource {
 	private String resourceName;
 	private int resourcePort;
-	
+
 	Resource(){
 		System.out.println("Resource Object Created");
 	}
-	
+
 	public String getResourceName() {
 		return resourceName;
 	}
@@ -20,7 +20,7 @@ public class Resource {
 	public void setResourcePort(int resourcePort) {
 		this.resourcePort = resourcePort;
 	}
-	
+
 	public void init() {
 		System.out.println("Init Method");
 	}

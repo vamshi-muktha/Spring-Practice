@@ -1,4 +1,4 @@
-package com.example.component;
+package com.example.demo.component;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -9,16 +9,16 @@ import jakarta.annotation.PreDestroy;
 
 @Component
 public class Resource {
-	
+
 	@Value("mysql")
 	private String resourceName;
 	@Value("8080")
 	private int resourcePort;
-	
+
 	Resource(){
 		System.out.println("Resource Object Created");
 	}
-	
+
 	public String getResourceName() {
 		return resourceName;
 	}
