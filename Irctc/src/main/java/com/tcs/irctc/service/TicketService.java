@@ -2,6 +2,8 @@ package com.tcs.irctc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import com.tcs.irctc.models.Passenger;
 import com.tcs.irctc.models.Ticket;
@@ -21,9 +23,7 @@ public class TicketService {
 	}
 
 	public Ticket getTicket(int pnr) {
-		// TODO Auto-generated method stub
-		Ticket t = tr.getReferenceById(pnr);
-		return t;
+		return tr.findById(pnr).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ticket not found"));
 	}
 	
 }

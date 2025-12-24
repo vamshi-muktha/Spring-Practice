@@ -6,9 +6,10 @@ export default function Home() {
 
 	// Book form state
 	const [name, setName] = useState("");
-	const [age, setAge] = useState("");
+	const [tno, setTno] = useState("");
 	const [from, setFrom] = useState("");
 	const [to, setTo] = useState("");
+	const [jdate, setJdate] = useState("");
 	const [bookResult, setBookResult] = useState(null);
 	const [bookError, setBookError] = useState(null);
 
@@ -22,9 +23,9 @@ export default function Home() {
 		setBookResult(null);
 		setBookError(null);
 		try {
-			const payload = { name, age, from, to };
-			const resp = await bookTicket(payload);
-			setBookResult(resp.data || resp);
+			const payload = { name, tno, from, to , jdate};
+			const data = await bookTicket(payload);
+			setBookResult(data);
 		} catch (err) {
 			setBookError(err?.response?.data || err.message || String(err));
 		}
@@ -34,9 +35,21 @@ export default function Home() {
 		e.preventDefault();
 		setPnrResult(null);
 		setPnrError(null);
+
+		if (!pnr) {
+			setPnrError("Please enter a PNR");
+			return;
+		}
+		const pnrNumber = parseInt(pnr, 10);
+		if (Number.isNaN(pnrNumber)) {
+			setPnrError("PNR must be a number");
+			return;
+		}
+
 		try {
-			const resp = await pnrTicket(pnr);
-			setPnrResult(resp.data || resp);
+			const data = await pnrTicket(pnrNumber);
+			console.log(data);
+			setPnrResult(data);
 		} catch (err) {
 			setPnrError(err?.response?.data || err.message || String(err));
 		}
@@ -61,8 +74,8 @@ export default function Home() {
 						<input value={name} onChange={(e) => setName(e.target.value)} required />
 					</div>
 					<div>
-						<label>Age: </label>
-						<input type="number" value={age} onChange={(e) => setAge(e.target.value)} required />
+						<label>Tno: </label>
+						<input type="text" value={tno} onChange={(e) => setTno(e.target.value)} required />
 					</div>
 					<div>
 						<label>From: </label>
@@ -72,9 +85,13 @@ export default function Home() {
 						<label>To: </label>
 						<input value={to} onChange={(e) => setTo(e.target.value)} required />
 					</div>
+					<div>
+						<label>jdate: </label>
+						<input value={jdate} onChange={(e) => setJdate(e.target.value)} required />
+					</div>
 					<button type="submit">Submit Booking</button>
 					{bookResult && (
-						<pre style={{ background: "#f6f6f6", padding: 8 }}>{JSON.stringify(bookResult, null, 2)}</pre>
+						<pre style={{padding: 8 }}>{JSON.stringify(bookResult, null, 2)}</pre>
 					)}
 					{bookError && <div style={{ color: "red" }}>{String(bookError)}</div>}
 				</form>
@@ -88,7 +105,7 @@ export default function Home() {
 					</div>
 					<button type="submit">Get Ticket</button>
 					{pnrResult && (
-						<pre style={{ background: "#f6f6f6", padding: 8 }}>{JSON.stringify(pnrResult, null, 2)}</pre>
+						<pre style={{  padding: 8 }}>{JSON.stringify(pnrResult, null, 2)}</pre>
 					)}
 					{pnrError && <div style={{ color: "red" }}>{String(pnrError)}</div>}
 				</form>
