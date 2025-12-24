@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tcs.SpringbootValidnExcep.bean.Employee;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class EmployeeController {
 	private HashMap<Integer, Employee> hm;
@@ -33,7 +35,7 @@ public class EmployeeController {
 	
 	
 	@PostMapping("/saveemp")
-	public ResponseEntity<String> saveEmployee(@RequestBody Employee emp) {
+	public ResponseEntity<String> saveEmployee(@Valid @RequestBody Employee emp) {
 		if(hm.containsKey(emp.getEno()))return new ResponseEntity<>("Employee already exists", HttpStatus.OK);
 		hm.put(emp.getEno(), emp);
 		return new ResponseEntity<>("Employee saved", HttpStatus.OK);
@@ -41,7 +43,6 @@ public class EmployeeController {
 	
 	@RequestMapping("/getemps")
 	public ResponseEntity<List<Employee>> getAllEmps(){
-		int c = 9/0;
 		return new ResponseEntity<>(new ArrayList<>(hm.values()), HttpStatus.OK);
 	}
 	

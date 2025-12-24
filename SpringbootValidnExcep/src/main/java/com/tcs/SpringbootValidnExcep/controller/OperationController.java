@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tcs.SpringbootValidnExcep.bean.Operation;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class OperationController {
 	
@@ -30,7 +32,7 @@ public class OperationController {
 	}
 	
 	@PostMapping("/sumb")
-	public ResponseEntity<Integer> sum(@RequestBody Operation ope){
+	public ResponseEntity<Integer> sum(@Valid @RequestBody Operation ope){
 		if(ope.getInp1() == 0 && ope.getInp2() == 0)throw new ArithmeticException("Both should not be zeroes");
 		ope.setRes(ope.getInp1() + ope.getInp2());
 		return new ResponseEntity<>(ope.getRes(), HttpStatus.OK);
@@ -38,7 +40,7 @@ public class OperationController {
 	}
 	
 	@PostMapping("/divb")
-	public ResponseEntity<Integer> div(@RequestBody Operation ope){
+	public ResponseEntity<Integer> div(@Valid @RequestBody Operation ope){
 		if(ope.getInp1() == 0 && ope.getInp2() == 0)throw new ArithmeticException("Both should not be zeroes");
 		ope.setRes(ope.getInp1() / ope.getInp2());
 		return new ResponseEntity<>(ope.getRes(), HttpStatus.OK);

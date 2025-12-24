@@ -1,4 +1,4 @@
-package com.tcs.SpringbootValidnExcep.Exception;
+package com.tcs.SpringWithJpa.exception;
 
 import java.util.HashMap;
 import java.util.Map;
