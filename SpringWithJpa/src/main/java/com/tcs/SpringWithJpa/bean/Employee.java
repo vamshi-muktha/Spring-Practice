@@ -5,16 +5,29 @@ import org.hibernate.validator.constraints.Length;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "eno")
 @Entity
 @Table(name = "employee")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
 	
 	@Id
@@ -38,59 +51,19 @@ public class Employee {
 	
 	@Email(message = "Give proper email")
 	private String email;
-	public Employee(int eno, String ename, int sal, String phno, String address, String email) {
-		super();
-		this.eno = eno;
-		this.ename = ename;
-		this.sal = sal;
-		this.phno = phno;
-		this.address = address;
-		this.email = email;
-	}
-	public Employee() {
-		super();
-	}
-	public int getEno() {
-		return eno;
-	}
-	public void setEno(int eno) {
-		this.eno = eno;
-	}
-	public String getEname() {
-		return ename;
-	}
-	public void setEname(String ename) {
-		this.ename = ename;
-	}
-	public int getSal() {
-		return sal;
-	}
-	public void setSal(int sal) {
-		this.sal = sal;
-	}
-	public String getPhno() {
-		return phno;
-	}
-	public void setPhno(String phno) {
-		this.phno = phno;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	@Override
-	public String toString() {
-		return "Employee [eno=" + eno + ", ename=" + ename + ", sal=" + sal + ", phno=" + phno + ", address=" + address
-				+ ", email=" + email + "]";
-	}
+	
+	@OneToOne
+	@JoinColumn(name = "eno")
+	private PfBankDetails pf;
+	
+	private String dno;
+	
+	
+	@OneToOne(mappedBy = "dno")
+	private Dept dt;
+	
+	
+
 	
 	
 }

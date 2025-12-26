@@ -3,6 +3,8 @@ package com.tcs.SpringWithJpa.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.tcs.SpringWithJpa.bean.Employee;
@@ -63,5 +65,10 @@ public class EmpService {
 	
 	public List<Employee> findByEnameSort(int sal){
 		return er.findByEnameSort(sal);
+	}
+	
+	public List<Employee> findByPage(int pno, int psize){
+		Pageable p = PageRequest.of(pno, psize);
+		return er.findAll(p).toList();
 	}
 }

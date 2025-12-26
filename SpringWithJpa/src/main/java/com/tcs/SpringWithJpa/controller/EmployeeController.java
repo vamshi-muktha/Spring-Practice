@@ -1,7 +1,5 @@
 package com.tcs.SpringWithJpa.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,4 +140,12 @@ public class EmployeeController {
 		}
 		return new ResponseEntity<>(found, HttpStatus.OK);
 	}
+	
+	@RequestMapping("/getemps/{pno}/{psize}")
+	public ResponseEntity<List<Employee>> getAllEmpsbyPage(@PathVariable int pno, @PathVariable int psize){
+		List<Employee> list = es.findByPage(pno, psize);
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+	
+	
 }
