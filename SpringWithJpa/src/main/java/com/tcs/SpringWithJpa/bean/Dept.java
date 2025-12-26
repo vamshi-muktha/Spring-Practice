@@ -2,6 +2,11 @@ package com.tcs.SpringWithJpa.bean;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +19,7 @@ import lombok.Data;
 @Entity
 @Table(name = "dept_info")
 @Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "dno")
 public class Dept {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -23,6 +29,6 @@ public class Dept {
 	private int cap;
 	@OneToMany
 	@JoinColumn(name = "dno")
-	List<Employee> al;
+	List<Employee> emps;
 	
 }

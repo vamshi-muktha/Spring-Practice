@@ -19,7 +19,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "eno")
@@ -56,10 +58,11 @@ public class Employee {
 	@JoinColumn(name = "eno")
 	private PfBankDetails pf;
 	
-	private String dno;
+//	private String dno;
 	
 	
-	@OneToOne(mappedBy = "dno")
+	@OneToOne
+	@JoinColumn(name = "dno")
 	private Dept dt;
 	
 	
