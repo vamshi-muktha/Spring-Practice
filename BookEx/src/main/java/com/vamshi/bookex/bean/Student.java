@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
@@ -25,12 +26,13 @@ public class Student {
 	private String area;
 	
 	
-	@OneToOne
-	@JoinColumn(name = "sno")
+	@OneToOne(mappedBy = "std")
 	private Marks m;
 	
 	
-	@OneToMany
-	@JoinColumn(name = "sno")
+	@OneToMany(mappedBy = "std")
 	private List<Book> books;
+	
+	@ManyToMany(mappedBy = "stds")
+	private List<Course> crs;
 }
