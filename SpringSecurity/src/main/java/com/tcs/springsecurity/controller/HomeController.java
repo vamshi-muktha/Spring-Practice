@@ -13,7 +13,7 @@ public class HomeController {
 	}
 	public static void main(String[] args) {
 		PasswordEncoder p = new BcryptPassword4jPasswordEncoder();
-		String pass = "xyz3";
+		String pass = "xyz";
 		String enc = p.encode(pass);
 		System.out.println(enc);
 		

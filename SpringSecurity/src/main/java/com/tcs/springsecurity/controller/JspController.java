@@ -10,6 +10,11 @@ public class JspController {
 		return "sample";
 	}
 	
+	@RequestMapping("/login")
+	public String getLogin() {
+		return "login";
+	}
+	
 	@RequestMapping("/wel")
 	public String getWel() {
 		return "welcome";
