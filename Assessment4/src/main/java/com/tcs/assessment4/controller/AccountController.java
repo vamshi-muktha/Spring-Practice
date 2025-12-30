@@ -41,4 +41,6 @@ public class AccountController {
 		return new ResponseEntity<>(as.getByBid(bid), HttpStatus.OK);
 		
 	}
+	
+	
 }
