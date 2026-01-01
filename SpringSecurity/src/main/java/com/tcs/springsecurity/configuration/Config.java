@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -38,25 +37,62 @@ public class Config {
 //		return http.build();
 //	}
 	
+//	@Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//
+//		http
+//	    .authorizeHttpRequests(auth -> auth
+//	        .requestMatchers("/jsp", "/login").permitAll()
+//	        .requestMatchers("/WEB-INF/**").permitAll()
+//	        .requestMatchers("/wel").authenticated()
+//	        .anyRequest().authenticated()
+//	    )
+//	    .formLogin(form -> form
+//	        .loginPage("/login")          
+//	        .loginProcessingUrl("/login")
+//	        .defaultSuccessUrl("/wel", true)
+//	        .permitAll()
+//	    );
+//
+//
+//
+//        return http.build();
+//    }
+	
 	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-		http
-	    .authorizeHttpRequests(auth -> auth
-	        .requestMatchers("/jsp", "/login").permitAll()
-	        .requestMatchers("/WEB-INF/**").permitAll()
-	        .requestMatchers("/wel").authenticated()
-	        .anyRequest().authenticated()
-	    )
-	    .formLogin(form -> form
-	        .loginPage("/login")          
-	        .loginProcessingUrl("/login") 
-	        .defaultSuccessUrl("/wel", true)
-	        .permitAll()
-	    );
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                        "/jsp",
+                        "/login",
+                        "/oauth2/**",
+                        "/login/oauth2/**",
+                        "/WEB-INF/**"
+                ).permitAll()
+                .requestMatchers("/wel").authenticated()
+                .anyRequest().authenticated()
+            )
 
+            .formLogin(form -> form
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/wel", true)
+                .permitAll()
+            )
 
+            .oauth2Login(oauth -> oauth
+                .loginPage("/login")
+                .defaultSuccessUrl("/wel", true)
+            )
+
+            // 🚪 Logout
+            .logout(logout -> logout
+                .logoutSuccessUrl("/jsp")
+            );
 
         return http.build();
     }
+
 }

@@ -20,18 +20,26 @@ public class Main {
 	}
 
 	public static String validate(String code) {
-		// TODO Auto-generated method stub
+		String str = "";
+		int n = code.length();
 		int cnt = 0;
 		boolean f = false;
-		for(char ch : code.toCharArray()) {
+		for(int i = 0; i < n; i++) {
+			char ch = code.charAt(i);
+			if(!Character.isAlphabetic(ch) && !Character.isDigit(ch)) {
+				if(i < 4)return "Input : "+ code +" is INVALID \nInstitution Code contains special characters";
+				if(i < 6)return "Input : "+ code +" is INVALID \nCountry Code contains special characters";
+				if(i < 8)return "Input : "+ code +" is INVALID \nLocation Code contains special characters";
+				else return "Input : "+ code +" is INVALID \nBranch Code contains special characters";
+			}
 			if(ch == ' ') {
 				f = true;
 			}
 			else cnt ++;
 			
 		}
+		
 		if(cnt == 8 || cnt == 11)if(f)return "This Code is INVALID \nCode contains non-alphanumeric Characters";
-		int n = code.length();
 		if(n < 8) {
 			return "This Code is INVALID \nLength is too Short";
 		}
@@ -75,7 +83,8 @@ public class Main {
 			}
 			
 		}
-		return "Input : " + code + " is VALID";
+		return "Input : " + code + " is VALID";  
+		
 			
 	}
 }
