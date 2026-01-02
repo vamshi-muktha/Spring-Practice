@@ -23,6 +23,10 @@ public class UserService implements UserDetailsService {
 		User user=ur.findByUsername(username);
 		return user;
 	}
+	
+	public void saveUser(User u) {
+		ur.save(u);
+	}
 
 }
 

@@ -67,6 +67,7 @@ public class Config {
                 .requestMatchers(
                         "/jsp",
                         "/login",
+                        "/register",
                         "/oauth2/**",
                         "/login/oauth2/**",
                         "/WEB-INF/**"
