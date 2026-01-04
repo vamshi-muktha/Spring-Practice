@@ -88,7 +88,6 @@ public class Config {
                 .defaultSuccessUrl("/wel", true)
             )
 
-            // 🚪 Logout
             .logout(logout -> logout
                 .logoutSuccessUrl("/jsp")
             );
