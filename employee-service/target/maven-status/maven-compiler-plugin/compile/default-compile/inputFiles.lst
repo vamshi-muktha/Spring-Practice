@@ -1,0 +1,7 @@
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/EmployeeServiceApplication.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/bean/Employee.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/controller/EmployeeController.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/dto/EmployeeDTO.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/repo/EmployeeRepo.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/service/EmployeeService.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/employee-service/src/main/java/com/tcs/springcoreexample/basic/service/EmployeeServiceImpl.java

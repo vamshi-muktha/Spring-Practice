@@ -1,0 +1,9 @@
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/DeptServiceApplication.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/api/ApiClient.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/bean/Dept.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/controller/DeptController.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/dto/DeptDto.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/dto/EmployeeDTO.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/repo/DeptRepo.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/service/DeptService.java
+/home/labuser/Documents/workspace-spring-tool-suite-4-4.23.1.RELEASE/Spring-Practice/dept-service/src/main/java/com/tcs/springcoreexample/basic/service/DeptServiceImpl.java

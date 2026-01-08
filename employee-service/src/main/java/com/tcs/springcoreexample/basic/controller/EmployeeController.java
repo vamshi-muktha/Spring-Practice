@@ -26,6 +26,9 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService service;
+	
+	@Autowired
+	private Environment env;
 
 	@PostMapping
 	public String saveEmployee(@RequestBody EmployeeDTO empDto) {
@@ -48,11 +51,12 @@ public class EmployeeController {
 		empDto.setEname(emp.getEname());
 		empDto.setSal((int) (emp.getBasicSalary() + emp.getBonus() + emp.getTax()));
 		empDto.setDeptno(emp.getDeptno());
+		System.out.println("port is : " + env.getProperty("local.server.port"));
+
 		return empDto;
 	}
 
-	@Autowired
-	private Environment env;
+	
 
 	@GetMapping
 	public ResponseEntity<List<EmployeeDTO>> getEmployeeBasedDeptno(@RequestParam int deptno) {
