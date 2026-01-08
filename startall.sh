@@ -13,13 +13,13 @@ sleep 15
 echo "Starting API Gateway..."
 cd ../api-gateway
 mvn spring-boot:run &
-sleep 150
+sleep 15
 
-echo "Starting User Service..."
+echo "Starting employee Service..."
 cd ../employee-service
 mvn spring-boot:run &
 sleep 10
 
-echo "Starting Order Service..."
+echo "Starting dept Service..."
 cd ../dept-service
 mvn spring-boot:run &
